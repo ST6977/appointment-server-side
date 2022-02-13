@@ -65,7 +65,7 @@ async function run() {
       const appointments = await cursor.toArray();
       res.json(appointments);
     });
-    // delete appointment room
+    // delete appointment 
     app.delete("/appointments/cancel/:id", async (req, res) => {
       const query = { _id: ObjectId(req.params.id) };
       const result = await appointmentsCollection.deleteOne(query);
