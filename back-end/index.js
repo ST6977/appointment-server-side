@@ -179,6 +179,7 @@ async function run() {
     app.post("/doctors", async (req, res) => {
       const name = req.body.name;
       const email = req.body.email;
+      const hospital = req.body.hospital;
       const pic = req.files.image;
       const picData = pic.data;
       const encodedPic = picData.toString("base64");
@@ -186,6 +187,7 @@ async function run() {
       const doctor = {
         name,
         email,
+        hospital,
         image: imageBuffer,
       };
       const result = await doctorsCollection.insertOne(doctor);
